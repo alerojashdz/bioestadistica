@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block section %}
+
+  <div class="post">
+    <h1>{{ sujeto.title }}</h1>
+
+  <hr>
+{% endblock section %}
+{% block maincontent %}
+
+      <div class="row">
+          <div class="col-md-16">
+        <h2><a href="">Datos</a></h2>
+          <p>{{ sujeto.datos | linebreaksbr }}</p>
+          <p>{{ sujeto.datos1 | linebreaksbr }}</p>
+        <h2><a href="">Señal</a></h2>
+          <img src="{% static sujeto.sig.url %}" style="width:560px;height:420px"/>
+        <h2><a href="">Medidas de tendencia central</a></h2>
+          <p>{{ sujeto.rmtc | linebreaksbr}}</p>
+        <h2><a href="">Tabla de frecuencias</a></h2>
+        <table width="75%" border="2" cellspacing="0" cellpadding="0">
+          <tr >
+            <td align="middle"><strong>x</strong></td>
+            <td align="middle"><strong>Frecuencia <br> absoluta</strong></td>
+            <td align="middle"><strong>Frecuencia <br> relativa</strong></td>
+            <td align="middle"><strong>Frecuencia <br> absoluta <br> acumulada</strong></td>
+            <td align="middle"><strong>Frecuencia <br> relativa <br> acumulada</strong></td>
+          </tr>
+          <tr >
+            <td align="middle">{{ sujeto.fr1 | linebreaksbr }}</td>
+            <td align="middle">{{ sujeto.fr2 | linebreaksbr }}</td>
+            <td align="middle">{{ sujeto.fr3 | linebreaksbr }}</td>
+            <td align="middle">{{ sujeto.fr4 | linebreaksbr }}</td>
+            <td align="middle">{{ sujeto.fr5 | linebreaksbr }}</td>
+          </tr>
+        </table>
+        <h2><a href="">Histogramas</a></h2>
+          <img src="{% static sujeto.his.url %}" style="width:560px;height:420px"/>
+        <h2><a href="">Función acumulativa</a></h2>
+        <table width="50%" border="2" cellspacing="0" cellpadding="0">
+          <tr >
+            <td align="middle"><strong>x</strong></td>
+            <td align="middle"><strong>f(x)</strong></td>
+            <td align="middle"><strong>F(x)</strong></td>
+          </tr>
+          <tr >
+            <td align="middle">{{ sujeto.fa1 | linebreaksbr }}</td>
+            <td align="middle">{{ sujeto.fa2 | linebreaksbr }}</td>
+            <td align="middle">{{ sujeto.fa3 | linebreaksbr }}</td>
+          </tr>
+        </table>
+            <img src="{% static sujeto.gra.url %}" style="width:560px;height:420px"/>
+        <h2><a href="">Función sobreviviente</a></h2>
+        <table width="30%" border="2" cellspacing="0" cellpadding="0">
+          <tr >
+            <td align="middle"><strong>x</strong></td>
+            <td align="middle"><strong>F(x)</strong></td>
+          </tr>
+          <tr >
+            <td align="middle">{{ sujeto.fs1 | linebreaksbr }}</td>
+            <td align="middle">{{ sujeto.fs3 | linebreaksbr }}</td>
+          </tr>
+        </table>
+            <img src="{% static sujeto.grs.url %}" style="width:560px;height:420px"/>
+            <h2><a href="">Función de Distribución de Probabilidad</a></h2>
+            <table width="45%" border="2" cellspacing="0" cellpadding="0">
+              <tr >
+                <td align="middle"><strong>x</strong></td>
+                <td align="middle"><strong>f(x)</strong></td>
+                <td align="middle"><strong>Aproximación<br> a la <br> Distribución <br> Normal </strong></td>
+              </tr>
+              <tr >
+                <td align="middle">{{ sujeto.comp1 | linebreaksbr }}</td>
+                <td align="middle">{{ sujeto.comp2 | linebreaksbr }}</td>
+                <td align="middle">{{ sujeto.comp3 | linebreaksbr }}</td>
+              </tr>
+            </table>
+                <img src="{% static sujeto.grp.url %}" style="width:560px;height:420px"/>
+                <p>{{ sujeto.fp | linebreaksbr}}</p>
+                <h2><a href="">Test CHI-cuadrada</a></h2>
+                <table width="45%" border="2" cellspacing="0" cellpadding="0">
+                  <tr >
+                    <td align="middle"><strong>x</strong></td>
+                    <td align="middle"><strong>Frecuencia <br> relativa <br> (muestra)</strong></td>
+                    <td align="middle"><strong>Frecuencia <br> absoluta <br> (muestra)</strong></td>
+                    <td align="middle"><strong>Frecuencia <br> relativa <br> (Normal)</strong></td>
+                    <td align="middle"><strong>Frecuencia <br> absoluta <br> (Normal)</strong></td>
+                  </tr>
+                  <tr >
+                    <td align="middle">{{ sujeto.comp1 | linebreaksbr }}</td>
+                    <td align="middle">{{ sujeto.comp2 | linebreaksbr }}</td>
+                    <td align="middle">{{ sujeto.fr2 | linebreaksbr }}</td>
+                    <td align="middle">{{ sujeto.comp3 | linebreaksbr }}</td>
+                    <td align="middle">{{ sujeto.comp5 | linebreaksbr }}</td>
+                  </tr>
+                </table>
+                <br>
+
+                <p>{{ sujeto.comp6 | linebreaksbr}}</p>
+                <h2><a href="">Test Kolmogorov - Smirnov</a></h2>
+                <img src="{% static sujeto.grp1.url %}" style="width:560px;height:420px"/>
+                <table width="45%" border="2" cellspacing="0" cellpadding="0">
+                  <tr >
+                    <td align="middle"><strong>x</strong></td>
+                    <td align="middle"><strong>Frecuencia <br> relativa <br> acummulada <br> (muestra)</strong></td>
+                    <td align="middle"><strong>Frecuencia <br> relativa <br> acumulada <br>(Normal)</strong></td>
+                  </tr>
+                  <tr >
+                    <td align="middle">{{ sujeto.comp1 | linebreaksbr }}</td>
+                    <td align="middle">{{ sujeto.fr5 | linebreaksbr }}</td>
+                    <td align="middle">{{ sujeto.comp7 | linebreaksbr }}</td>
+                  </tr>
+                </table>
+                <br>
+                <p>{{ sujeto.comp8 | linebreaksbr}}</p>
+      </div>
+</div>
+</div>
+{% endblock maincontent %}
+<br>

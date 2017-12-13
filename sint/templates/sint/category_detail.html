@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block section %}
+    <h2>{{ object.name }}</h2>
+    <hr>
+{% endblock section %}
+
+{% block maincontent %}
+<div>
+    <table width="100%" border="2" cellspacing="10" cellpadding="10" class="table">
+        <tr>
+            {% for Sujeto in object.sujeto_set.all %}
+                <td>
+                    <div><h4 align="middle">{{ Sujeto.title }}</h4></div> <br>
+                    <div>{{ Sujeto.datos1 }}</div><br>
+                    <div>{{ Sujeto.rmtc | linebreaksbr }}</div><br>
+                </td>
+                {% endfor %}
+        </tr>
+      </table>
+<br>
+{% for Comparacion in object.comparacion_set.all %}
+<div><h4 align="middle">{{ Comparacion.tit }}<h4></div><br>
+  <img src="{% static Comparacion.comp.url %}" style="width:560px;height:420px"/>
+<div>{{ Comparacion.dat | linebreaksbr }}</div><br>
+
+{% endfor %}
+</div>
+{% endblock maincontent %}

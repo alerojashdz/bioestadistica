@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block section %}
+    <h2>Comparación de las marchas de los sujetos (sin restricción vs con metrónomo)</h2>
+    <hr>
+{% endblock section %}
+
+{% block maincontent %}
+    <div>
+        {% for c in object_list %}
+            <a href="{% url 'category-detail' c.pk %}">
+                <p> {{ c.name | linebreaksbr }} </p>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock maincontent %}

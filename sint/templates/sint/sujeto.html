@@ -1,0 +1,20 @@
+
+
+{% extends 'base.html' %}
+
+{% block section %}
+    <h2>Sujetos</h2>
+    <hr>
+{% endblock section %}
+
+{% block maincontent %}
+    <div>
+        {% for p in sujeto_list %}
+            <a href="{% url 'sujeto-detail' p.pk %}">
+
+                <p> {{ p.title}}</p>
+            
+            </a>
+        {% endfor %}
+    </div>
+{% endblock maincontent %}
